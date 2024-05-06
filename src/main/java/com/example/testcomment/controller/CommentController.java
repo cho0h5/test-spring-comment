@@ -16,11 +16,16 @@ import java.util.List;
 public class CommentController {
     private final CommentRepository commentRepository;
 
+    @GetMapping
+    public List<Comment> getComemnts() {
+        return commentRepository.findAll();
+    }
+
     @GetMapping("/{content}")
-    public List<Comment> getComment(@PathVariable("content") String content) {
+    public String uploadComment(@PathVariable("content") String content) {
         Comment comment = new Comment(content);
 
         commentRepository.save(comment);
-        return commentRepository.findAll();
+        return "success";
     }
 }
