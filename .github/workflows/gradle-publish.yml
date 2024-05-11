@@ -34,4 +34,4 @@ jobs:
       run: ./gradlew build
 
     - name: Run application
-      run: ./gradlew run
+      run: ./gradlew bootRun
